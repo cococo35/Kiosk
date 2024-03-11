@@ -1,7 +1,7 @@
 package com.android.kiosk
 
-class Blond: KioskClass() {
-    override fun BlondMenu() {
+class Blond: AbstractKioskMenu() {
+    override fun DetailMenu() {
         println("[Blond Menu]")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
         println("[1] 블론드 바닐라 더블샷 마키아또 | W 5,900 |")

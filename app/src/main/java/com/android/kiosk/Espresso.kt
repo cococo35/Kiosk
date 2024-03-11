@@ -1,7 +1,7 @@
 package com.android.kiosk
 
-class Espresso: KioskClass() {
-    override fun EspressoMenu() {
+class Espresso: AbstractKioskMenu() {
+    override fun DetailMenu() {
         println("[Espresso Menu]")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
         println("[1] 카페 아메리카노 | W 4,500 |")

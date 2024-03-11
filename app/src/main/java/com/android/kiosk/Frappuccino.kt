@@ -1,7 +1,7 @@
 package com.android.kiosk
 
-class Frappuccino: KioskClass() {
-    override fun FrappuccinoMenu() {
+class Frappuccino: AbstractKioskMenu() {
+    override fun DetailMenu() {
         println("[Frappuccino Menu]")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
         println("[1] 자바 칩 프라푸치노    | W 6,300 |")

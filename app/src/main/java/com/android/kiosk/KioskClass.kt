@@ -1,6 +1,6 @@
 package com.android.kiosk
 
- open class KioskClass {
+ class KioskClass(private val menu: AbstractKioskMenu) {
 
     fun MainMenu() {
         println("[Star Cafe Menu]")
@@ -13,13 +13,7 @@ package com.android.kiosk
         println("[0] 키오스크 종료")
     }
 
-    open fun ColdBrewMenu() {}
-
-    open fun BlondMenu() {}
-
-    open fun EspressoMenu() {}
-
-     open fun FrappuccinoMenu() {}
-
-     open fun CakeMenu() {}
+    fun DetailMenu() {
+        return menu.DetailMenu()
+    }
 }

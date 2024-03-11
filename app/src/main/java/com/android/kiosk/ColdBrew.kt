@@ -1,7 +1,7 @@
 package com.android.kiosk
 
-class ColdBrew: KioskClass() {
-    override fun ColdBrewMenu() {
+class ColdBrew: AbstractKioskMenu() {
+    override fun DetailMenu() {
         println("[ColdBrew Menu]")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
         println("[1] 시그니처 더 블랙 콜드 브루 | W 9,600 | ")

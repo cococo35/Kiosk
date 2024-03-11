@@ -1,8 +1,8 @@
 package com.android.kiosk
 
 fun main() {
-    
-    var Work = KioskClass()
+
+    var Work = KioskClass(ColdBrew())
     while(true) {
 
         Work.MainMenu()
@@ -16,40 +16,40 @@ fun main() {
             }
 
             1 -> {
-                Work = ColdBrew()
-                Work.ColdBrewMenu()
+                Work = KioskClass(ColdBrew())
+                Work.DetailMenu()
 
                 sign = readLine()!!.toInt()
                 if (sign == 0) continue
             }
 
             2 -> {
-                Work = Blond()
-                Work.BlondMenu()
+                Work = KioskClass(Blond())
+                Work.DetailMenu()
 
                 sign = readLine()!!.toInt()
                 if (sign == 0) continue
             }
 
             3 -> {
-                Work = Espresso()
-                Work.EspressoMenu()
+                Work = KioskClass(Espresso())
+                Work.DetailMenu()
 
                 sign = readLine()!!.toInt()
                 if (sign == 0) continue
             }
 
             4 -> {
-                Work = Frappuccino()
-                Work.FrappuccinoMenu()
+                Work = KioskClass(Frappuccino())
+                Work.DetailMenu()
 
                 sign = readLine()!!.toInt()
                 if (sign == 0) continue
             }
 
             5 -> {
-                Work = Cake()
-                Work.CakeMenu()
+                Work = KioskClass(Cake())
+                Work.DetailMenu()
 
                 sign = readLine()!!.toInt()
                 if (sign == 0) continue

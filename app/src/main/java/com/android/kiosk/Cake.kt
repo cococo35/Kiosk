@@ -1,7 +1,7 @@
 package com.android.kiosk
 
-class Cake:KioskClass() {
-    override fun CakeMenu() {
+class Cake: AbstractKioskMenu() {
+    override fun DetailMenu() {
         println("[Cake Menu]")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
         println("[1] 체리 포레누아 케이크       | W 7,500 |")
