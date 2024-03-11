@@ -1,6 +1,7 @@
 package com.android.kiosk
 
 fun main() {
+    
     var Work = KioskClass()
     while(true) {
 
@@ -15,6 +16,7 @@ fun main() {
             }
 
             1 -> {
+                Work = ColdBrew()
                 Work.ColdBrewMenu()
 
                 sign = readLine()!!.toInt()
@@ -22,6 +24,7 @@ fun main() {
             }
 
             2 -> {
+                Work = Blond()
                 Work.BlondMenu()
 
                 sign = readLine()!!.toInt()
@@ -29,6 +32,7 @@ fun main() {
             }
 
             3 -> {
+                Work = Espresso()
                 Work.EspressoMenu()
 
                 sign = readLine()!!.toInt()
@@ -36,6 +40,7 @@ fun main() {
             }
 
             4 -> {
+                Work = Frappuccino()
                 Work.FrappuccinoMenu()
 
                 sign = readLine()!!.toInt()
@@ -43,6 +48,7 @@ fun main() {
             }
 
             5 -> {
+                Work = Cake()
                 Work.CakeMenu()
 
                 sign = readLine()!!.toInt()
