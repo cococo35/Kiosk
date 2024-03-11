@@ -1,7 +1,6 @@
 package com.android.kiosk
 
 fun main() {
-
     var Work = KioskClass(ColdBrew())
     while(true) {
 
@@ -53,6 +52,14 @@ fun main() {
 
                 sign = readLine()!!.toInt()
                 if (sign == 0) continue
+            }
+
+            9999 -> {
+                println("추가할 메뉴의 이름을 입력해 주세요!")
+                var name = readLine()!!.toString()
+                println("추가할 메뉴의 가격을 입력해 주세요!")
+                var price = readLine()!!.toInt()
+                init(name, price)
             }
         }
     }

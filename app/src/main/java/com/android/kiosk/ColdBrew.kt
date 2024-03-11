@@ -9,4 +9,9 @@ class ColdBrew: AbstractKioskMenu() {
         println("[3] 바닐라 크림 콜드 브루     | W 5,800 |")
         println("[0] 메인 메뉴로")
     }
+
+    override fun init(name: String, price: Int) {
+        var ColdBrewMenuList = arrayListOf<String>("시그니처 더 블랙 콜드 브루 W 9,600", "돌체 콜드 브루 W 6,000", "바닐라 크림 콜드 브루 W 5,800")
+        ColdBrewMenuList += "${name} W ${price}"
+    }
 }
