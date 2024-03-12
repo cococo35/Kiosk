@@ -1,65 +1,104 @@
 package com.android.kiosk
 
 fun main() {
-    var Work = KioskClass(ColdBrew())
+    lateinit var work : KioskClass
+    val coldBrewList = mutableListOf<String>()
+    val blondList = mutableListOf<String>()
+    val espressoList = mutableListOf<String>()
+    val frappuccinoList = mutableListOf<String>()
+    val cakeList = mutableListOf<String>()
+
     while(true) {
 
-        Work.MainMenu()
+        println("[Star Cafe Menu]")
+        println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+        println("[1] 콜드브루 커피")
+        println("[2] 블론드")
+        println("[3] 에스프레소")
+        println("[4] 프라푸치노")
+        println("[5] 케이크")
+        println("[0] 키오스크 종료")
 
-        var sign: Int = readLine()!!.toInt()
+        var select: Int = readln().toInt()
 
-        when (sign) {
+        when (select) {
             0 -> {
                 println("키오스크 종료")
                 return
             }
 
             1 -> {
-                Work = KioskClass(ColdBrew())
-                Work.DetailMenu()
+                work = KioskClass(ColdBrew())
+                work.menu(coldBrewList)
 
-                sign = readLine()!!.toInt()
-                if (sign == 0) continue
+                select = readln().toInt()
+                if(select == 0) continue
             }
 
             2 -> {
-                Work = KioskClass(Blond())
-                Work.DetailMenu()
+                work = KioskClass(Blond())
+                work.menu(blondList)
 
-                sign = readLine()!!.toInt()
-                if (sign == 0) continue
+                select = readln().toInt()
+                if(select == 0) continue
             }
 
             3 -> {
-                Work = KioskClass(Espresso())
-                Work.DetailMenu()
+                work = KioskClass(Espresso())
+                work.menu(espressoList)
 
-                sign = readLine()!!.toInt()
-                if (sign == 0) continue
+                select = readln().toInt()
+                if(select == 0) continue
             }
 
             4 -> {
-                Work = KioskClass(Frappuccino())
-                Work.DetailMenu()
+                work = KioskClass(Frappuccino())
+                work.menu(frappuccinoList)
 
-                sign = readLine()!!.toInt()
-                if (sign == 0) continue
+                select = readln().toInt()
+                if(select == 0) continue
             }
 
             5 -> {
-                Work = KioskClass(Cake())
-                Work.DetailMenu()
+                work = KioskClass(Cake())
+                work.menu(cakeList)
 
-                sign = readLine()!!.toInt()
-                if (sign == 0) continue
+                select = readln().toInt()
+                if(select == 0) continue
             }
 
-            9999 -> {
-                println("추가할 메뉴의 이름을 입력해 주세요!")
-                var name = readLine()!!.toString()
-                println("추가할 메뉴의 가격을 입력해 주세요!")
-                var price = readLine()!!.toInt()
-                init(name, price)
+            9 -> {
+                println("추가할 메뉴를 선택해 주세요")
+                println("[1] 콜드브루 커피, [2] 블론드, [3] 에스프레소, [4] 프라푸치노, [5] 케이크")
+                select = readln().toInt()
+
+                when(select) {
+                    1 -> {
+                        work = KioskClass(ColdBrew())
+                        println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
+                        work.init(readln(), coldBrewList)
+                    }
+                    2 -> {
+                        work = KioskClass(Blond())
+                        println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
+                        work.init(readln(), blondList)
+                    }
+                    3 -> {
+                        work = KioskClass(Espresso())
+                        println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
+                        work.init(readln(), espressoList)
+                    }
+                    4 -> {
+                        work = KioskClass(Frappuccino())
+                        println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
+                        work.init(readln(), frappuccinoList)
+                    }
+                    5 -> {
+                        work = KioskClass(Cake())
+                        println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
+                        work.init(readln(), cakeList)
+                    }
+                }
             }
         }
     }

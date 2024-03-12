@@ -1,12 +1,15 @@
 package com.android.kiosk
 
-class Espresso: AbstractKioskMenu() {
-    override fun DetailMenu() {
-        println("[Espresso Menu]")
+class Espresso: AbstractKiosk() {
+    override fun init(name: String, detail: MutableList<String>) {
+        detail.add(name)
+        println("메뉴에 추가되었습니다! 현재 메뉴: $detail")
+    }
+
+    override fun menu(list: MutableList<String>) {
+        println("Espresso Menu")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
-        println("[1] 카페 아메리카노 | W 4,500 |")
-        println("[2] 카푸치노       | W 5,000 |")
-        println("[3] 에스프레소     | W 4,500 |")
-        println("[0] 메인 메뉴로")
+        for(i in list.indices) println(list[i])
+        println("0번: 메인 메뉴로")
     }
 }

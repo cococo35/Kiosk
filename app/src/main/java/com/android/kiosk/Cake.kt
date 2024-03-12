@@ -1,12 +1,15 @@
 package com.android.kiosk
 
-class Cake: AbstractKioskMenu() {
-    override fun DetailMenu() {
-        println("[Cake Menu]")
+class Cake: AbstractKiosk() {
+    override fun init(name: String, detail: MutableList<String>) {
+        detail.add(name)
+        println("메뉴에 추가되었습니다! 현재 메뉴: $detail")
+    }
+
+    override fun menu(list: MutableList<String>) {
+        println("Cake Menu")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
-        println("[1] 체리 포레누아 케이크       | W 7,500 |")
-        println("[2] 마스카포네 티라미슈 케이크  | W 5,900 |")
-        println("[3] 클라우드 치즈 케이크       | W 5,500 |")
-        println("[0] 메인 메뉴로")
+        for(i in list.indices) println(list[i])
+        println("0번: 메인 메뉴로")
     }
 }

@@ -1,12 +1,15 @@
 package com.android.kiosk
 
-class Blond: AbstractKioskMenu() {
-    override fun DetailMenu() {
-        println("[Blond Menu]")
+class Blond: AbstractKiosk() {
+    override fun init(name: String, detail: MutableList<String>) {
+        detail.add(name)
+        println("메뉴에 추가되었습니다! 현재 메뉴: $detail")
+    }
+
+    override fun menu(list: MutableList<String>) {
+        println("Blond Menu")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
-        println("[1] 블론드 바닐라 더블샷 마키아또 | W 5,900 |")
-        println("[2] 블론드 카페라떼             | W 5,000 |")
-        println("[3] 블론드 카페 아메리카노       | W 4,500 |")
-        println("[0] 메인 메뉴로")
+        for(i in list.indices) println(list[i])
+        println("0번: 메인 메뉴로")
     }
 }
