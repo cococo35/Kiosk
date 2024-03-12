@@ -4,11 +4,7 @@ import java.lang.NumberFormatException
 
 fun main() {
     lateinit var work : KioskClass
-    val coldBrewList = mutableListOf<String>()
-    val blondList = mutableListOf<String>()
-    val espressoList = mutableListOf<String>()
-    val frappuccinoList = mutableListOf<String>()
-    val cakeList = mutableListOf<String>()
+    val menuList = mutableListOf(mutableListOf<String>(), mutableListOf<String>(), mutableListOf<String>(), mutableListOf<String>(), mutableListOf<String>())
 
     while(true) {
 
@@ -34,7 +30,7 @@ fun main() {
 
                     1 -> {
                         work = KioskClass(ColdBrew())
-                        work.menu(coldBrewList)
+                        work.menu(menuList[0])
 
                         select = readln().toInt()
                         if (select == 0) continue
@@ -42,7 +38,7 @@ fun main() {
 
                     2 -> {
                         work = KioskClass(Blond())
-                        work.menu(blondList)
+                        work.menu(menuList[1])
 
                         select = readln().toInt()
                         if (select == 0) continue
@@ -50,7 +46,7 @@ fun main() {
 
                     3 -> {
                         work = KioskClass(Espresso())
-                        work.menu(espressoList)
+                        work.menu(menuList[2])
 
                         select = readln().toInt()
                         if (select == 0) continue
@@ -58,7 +54,7 @@ fun main() {
 
                     4 -> {
                         work = KioskClass(Frappuccino())
-                        work.menu(frappuccinoList)
+                        work.menu(menuList[3])
 
                         select = readln().toInt()
                         if (select == 0) continue
@@ -66,7 +62,7 @@ fun main() {
 
                     5 -> {
                         work = KioskClass(Cake())
-                        work.menu(cakeList)
+                        work.menu(menuList[4])
 
                         select = readln().toInt()
                         if (select == 0) continue
@@ -84,31 +80,31 @@ fun main() {
                                     1 -> {
                                         work = KioskClass(ColdBrew())
                                         println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
-                                        work.init(readln(), coldBrewList)
+                                        work.init(readln(), menuList[0])
                                     }
 
                                     2 -> {
                                             work = KioskClass(Blond())
                                             println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
-                                            work.init(readln(), blondList)
+                                            work.init(readln(), menuList[1])
                                         }
 
                                     3 -> {
                                             work = KioskClass(Espresso())
                                             println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
-                                            work.init(readln(), espressoList)
+                                            work.init(readln(), menuList[2])
                                         }
 
                                     4 -> {
                                             work = KioskClass(Frappuccino())
                                             println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
-                                            work.init(readln(), frappuccinoList)
+                                            work.init(readln(), menuList[3])
                                         }
 
                                     5 -> {
                                             work = KioskClass(Cake())
                                             println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
-                                            work.init(readln(), cakeList)
+                                            work.init(readln(), menuList[4])
                                         }
                                 }
                             } else {
