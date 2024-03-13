@@ -1,14 +1,26 @@
 package com.android.kiosk
 
 import java.lang.NumberFormatException
+import kotlin.properties.Delegates
 
 fun main() {
     lateinit var work : KioskClass
-    val menuList = mutableListOf(mutableListOf("시그니처 더 블랙 콜드 브루 W 19,600", "돌체 콜드 브루 W 6,000", "바닐라 크림 콜드 브루 W 5,800"),
-                                 mutableListOf("블론드 스타벅스 돌체 라떼 W 5,400", "블론드 카페라떼 W 4,500", "블론드 카페 아메리카노 W 4,000"),
-                                 mutableListOf("카페 모카 W 5,000", "카페 아메리카노 W 4,000", "카푸치노 W 4,500"),
-                                 mutableListOf("자바 칩 프라푸치노 W 6,300", "카라멜 프라푸치노 W 5,900", "에스프레소 프라푸치노 W 5,500"),
-                                 mutableListOf("체리 포레누아 케이크 W 7,500", "클래식 피스타치오 케이크 W 6,500", "클라우드 치즈 케이크 W 5,500"))
+    var myMoney by Delegates.notNull<Int>()
+    val menuList = mutableListOf(mutableListOf("시그니처 더 블랙 콜드 브루 W 19600", "돌체 콜드 브루 W 6000", "바닐라 크림 콜드 브루 W 5800"),
+                                 mutableListOf("블론드 스타벅스 돌체 라떼 W 5400", "블론드 카페라떼 W 4500", "블론드 카페 아메리카노 W 4000"),
+                                 mutableListOf("카페 모카 W 5000", "카페 아메리카노 W 4000", "카푸치노 W 4500"),
+                                 mutableListOf("자바 칩 프라푸치노 W 6300", "카라멜 프라푸치노 W 5900", "에스프레소 프라푸치노 W 5500"),
+                                 mutableListOf("체리 포레누아 케이크 W 7500", "클래식 피스타치오 케이크 W 6500", "클라우드 치즈 케이크 W 5500"))
+
+    println("금액 입력")
+    while(true) {
+        try {
+            myMoney = readln().toInt()
+            break
+        } catch(e: NumberFormatException) {
+            println("숫자만 입력해 주세요!")
+        }
+    }
 
     while(true) {
 
@@ -34,42 +46,72 @@ fun main() {
 
                     1 -> {
                         work = KioskClass(ColdBrew())
-                        work.menu(menuList[0])
-
-                        select = readln().toInt()
-                        if (select == 0) continue
+                        work.menu(menuList[0], myMoney)
+                        while(select != 0) {
+                            try {
+                                select = readln().toInt()
+                                if(select == 0) continue
+                                else println ("올바른 숫자를 입력해주세요!")
+                            } catch(e:NumberFormatException) {
+                                println("숫자를 입력해주세요!")
+                            }
+                        }
                     }
 
                     2 -> {
                         work = KioskClass(Blond())
-                        work.menu(menuList[1])
-
-                        select = readln().toInt()
-                        if (select == 0) continue
+                        work.menu(menuList[1], myMoney)
+                        while(select != 0) {
+                            try {
+                                select = readln().toInt()
+                                if(select == 0) continue
+                                else println ("올바른 숫자를 입력해주세요!")
+                            } catch(e:NumberFormatException) {
+                                println("숫자를 입력해주세요!")
+                            }
+                        }
                     }
 
                     3 -> {
                         work = KioskClass(Espresso())
-                        work.menu(menuList[2])
-
-                        select = readln().toInt()
-                        if (select == 0) continue
+                        work.menu(menuList[2], myMoney)
+                        while(select != 0) {
+                            try {
+                                select = readln().toInt()
+                                if(select == 0) continue
+                                else println ("올바른 숫자를 입력해주세요!")
+                            } catch(e:NumberFormatException) {
+                                println("숫자를 입력해주세요!")
+                            }
+                        }
                     }
 
                     4 -> {
                         work = KioskClass(Frappuccino())
-                        work.menu(menuList[3])
-
-                        select = readln().toInt()
-                        if (select == 0) continue
+                        work.menu(menuList[3], myMoney)
+                        while(select != 0) {
+                            try {
+                                select = readln().toInt()
+                                if(select == 0) continue
+                                else println ("올바른 숫자를 입력해주세요!")
+                            } catch(e:NumberFormatException) {
+                                println("숫자를 입력해주세요!")
+                            }
+                        }
                     }
 
                     5 -> {
                         work = KioskClass(Cake())
-                        work.menu(menuList[4])
-
-                        select = readln().toInt()
-                        if (select == 0) continue
+                        work.menu(menuList[4], myMoney)
+                        while(select != 0) {
+                            try {
+                                select = readln().toInt()
+                                if(select == 0) continue
+                                else println ("올바른 숫자를 입력해주세요!")
+                            } catch(e:NumberFormatException) {
+                                println("숫자를 입력해주세요!")
+                            }
+                        }
                     }
 
                     9 -> {
@@ -82,33 +124,33 @@ fun main() {
 
                                 when (select) {
                                     1 -> {
-                                        work = KioskClass(ColdBrew())
-                                        println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
-                                        work.init(readln(), menuList[0])
+                                            work = KioskClass(ColdBrew())
+                                            println("메뉴의 이름과 가격을 적어주세요!")
+                                            work.init(readln(), readln().toInt(), menuList[0])
                                     }
 
                                     2 -> {
                                             work = KioskClass(Blond())
-                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
-                                            work.init(readln(), menuList[1])
+                                            println("메뉴의 이름과 가격을 적어주세요!")
+                                            work.init(readln(), readln().toInt(), menuList[1])
                                         }
 
                                     3 -> {
                                             work = KioskClass(Espresso())
-                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
-                                            work.init(readln(), menuList[2])
+                                            println("메뉴의 이름과 가격을 적어주세요!")
+                                            work.init(readln(), readln().toInt(), menuList[2])
                                         }
 
                                     4 -> {
                                             work = KioskClass(Frappuccino())
-                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
-                                            work.init(readln(), menuList[3])
+                                            println("메뉴의 이름과 가격을 적어주세요!")
+                                            work.init(readln(), readln().toInt(), menuList[3])
                                         }
 
                                     5 -> {
                                             work = KioskClass(Cake())
-                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
-                                            work.init(readln(), menuList[4])
+                                            println("메뉴의 이름과 가격을 적어주세요!")
+                                            work.init(readln(), readln().toInt(), menuList[4])
                                         }
                                 }
                             } else {
