@@ -4,7 +4,11 @@ import java.lang.NumberFormatException
 
 fun main() {
     lateinit var work : KioskClass
-    val menuList = mutableListOf(mutableListOf<String>(), mutableListOf<String>(), mutableListOf<String>(), mutableListOf<String>(), mutableListOf<String>())
+    val menuList = mutableListOf(mutableListOf("시그니처 더 블랙 콜드 브루 W 19,600", "돌체 콜드 브루 W 6,000", "바닐라 크림 콜드 브루 W 5,800"),
+                                 mutableListOf("블론드 스타벅스 돌체 라떼 W 5,400", "블론드 카페라떼 W 4,500", "블론드 카페 아메리카노 W 4,000"),
+                                 mutableListOf("카페 모카 W 5,000", "카페 아메리카노 W 4,000", "카푸치노 W 4,500"),
+                                 mutableListOf("자바 칩 프라푸치노 W 6,300", "카라멜 프라푸치노 W 5,900", "에스프레소 프라푸치노 W 5,500"),
+                                 mutableListOf("체리 포레누아 케이크 W 7,500", "클래식 피스타치오 케이크 W 6,500", "클라우드 치즈 케이크 W 5,500"))
 
     while(true) {
 
@@ -79,31 +83,31 @@ fun main() {
                                 when (select) {
                                     1 -> {
                                         work = KioskClass(ColdBrew())
-                                        println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
+                                        println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
                                         work.init(readln(), menuList[0])
                                     }
 
                                     2 -> {
                                             work = KioskClass(Blond())
-                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
+                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
                                             work.init(readln(), menuList[1])
                                         }
 
                                     3 -> {
                                             work = KioskClass(Espresso())
-                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
+                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
                                             work.init(readln(), menuList[2])
                                         }
 
                                     4 -> {
                                             work = KioskClass(Frappuccino())
-                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
+                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
                                             work.init(readln(), menuList[3])
                                         }
 
                                     5 -> {
                                             work = KioskClass(Cake())
-                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")   // 메뉴 이름 양식 try..catch 만들기
+                                            println("메뉴의 이름과 가격을 적어주세요! ([메뉴이름] W [가격])")
                                             work.init(readln(), menuList[4])
                                         }
                                 }
