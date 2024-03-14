@@ -17,7 +17,17 @@ fun main() {
     val dateTime: LocalDateTime = LocalDateTime.now()
     val dateTimeFormat = DateTimeFormatter.ofPattern("HHmm")
     val dateTimeDay = dateTime.format(dateTimeFormat)
-//    val orderThread: Thread? = null
+    val numList = listOf(0, 1, 2, 3, 4, 5)
+    val orderThread = Thread {
+        while(true) {
+        try {
+            println("현재 대기열: ${numList.random()}")
+            Thread.sleep(5000)
+        } catch (e: InterruptedException) {
+            return@Thread
+        }
+        }
+    }
 
     if(dateTimeDay.toInt() in 0 .. 30) {
         println("은행 점검 시간입니다!(00:00 ~ 00:30) 키오스크를 종료합니다...")
@@ -34,9 +44,11 @@ fun main() {
         }
     }
 
+
+    orderThread.start()
+
     while(true) {
         delayThread?.interrupt()
-//        orderThread?.interrupt()
 
         delayThread = Thread {
             try {
