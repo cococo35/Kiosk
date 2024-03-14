@@ -86,7 +86,7 @@ fun main() {
                             if (select == 0) continue
                             else if (select == 1) {
                                 println("구매할 메뉴의 번호를 입력해 주세요!")
-                                myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
+                                myMoney = work.buy(readln().toInt(), menuList[1], myMoney)
                             } else {
                                 println("올바른 숫자를 입력해주세요!")
                             }
@@ -104,7 +104,7 @@ fun main() {
                             if (select == 0) continue
                             else if (select == 1) {
                                 println("구매할 메뉴의 번호를 입력해 주세요!")
-                                myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
+                                myMoney = work.buy(readln().toInt(), menuList[2], myMoney)
                             } else {
                                 println("올바른 숫자를 입력해주세요!")
                             }
@@ -122,7 +122,7 @@ fun main() {
                             if (select == 0) continue
                             else if (select == 1) {
                                 println("구매할 메뉴의 번호를 입력해 주세요!")
-                                myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
+                                myMoney = work.buy(readln().toInt(), menuList[3], myMoney)
                             } else {
                                 println("올바른 숫자를 입력해주세요!")
                             }
@@ -140,7 +140,7 @@ fun main() {
                             if (select == 0) continue
                             else if (select == 1) {
                                 println("구매할 메뉴의 번호를 입력해 주세요!")
-                                myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
+                                myMoney = work.buy(readln().toInt(), menuList[4], myMoney)
                             } else {
                                 println("올바른 숫자를 입력해주세요!")
                             }

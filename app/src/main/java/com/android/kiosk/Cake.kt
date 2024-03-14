@@ -11,6 +11,7 @@ class Cake: AbstractKiosk() {
         println("Cake Menu")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
         for(i in list.indices) {
+            print("[${i + 1}] ")
             print(list[i])
             if(list[i].substringAfter("W ").toInt() > money) print(" (구매 불가)")
             else print(" (구매 가능)")

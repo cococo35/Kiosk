@@ -22,14 +22,12 @@ class ColdBrew: AbstractKiosk() {
     override fun buy(select: Int, buyMenuList: MutableList<String>, money: Int): Int {
         if(buyMenuList[select - 1].substringAfter("W ").toInt() > money) {
             println("잔액 부족!")
-            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
             return money
         }
         for(i in buyMenuList.indices) {
             if(buyMenuList[i] == buyMenuList[select - 1] && buyMenuList[i].substringAfter("W ").toInt() <= money) {
                 println("구매 완료")
                 println("잔액: ${money - buyMenuList[i].substringAfter("W ").toInt()}")
-                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                 return money - buyMenuList[i].substringAfter("W ").toInt()
             }
         }

@@ -11,12 +11,14 @@ class Blond: AbstractKiosk() {
         println("Blond Menu")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
         for(i in list.indices) {
+            print("[${i + 1}] ")
             print(list[i])
             if(list[i].substringAfter("W ").toInt() > money) print(" (구매 불가)")
             else print(" (구매 가능)")
             println()
         }
     }
+
     override fun buy(select: Int, buyMenuList: MutableList<String>, money: Int): Int {
         if(buyMenuList[select - 1].substringAfter("W ").toInt() > money) {
             println("잔액 부족!")
