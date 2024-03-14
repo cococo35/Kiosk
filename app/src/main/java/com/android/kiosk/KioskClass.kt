@@ -8,4 +8,8 @@ class KioskClass(private val kiosk: AbstractKiosk) {
     fun menu(list: MutableList<String>, money: Int) {
         return kiosk.menu(list, money)
     }
+
+    fun buy(select: Int, buyMenuList: MutableList<String>, money: Int): Int {
+        return kiosk.buy(select, buyMenuList, money)
+    }
 }
