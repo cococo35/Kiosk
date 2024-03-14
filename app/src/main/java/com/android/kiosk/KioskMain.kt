@@ -17,6 +17,7 @@ fun main() {
     val dateTime: LocalDateTime = LocalDateTime.now()
     val dateTimeFormat = DateTimeFormatter.ofPattern("HHmm")
     val dateTimeDay = dateTime.format(dateTimeFormat)
+//    val orderThread: Thread? = null
 
     if(dateTimeDay.toInt() in 0 .. 30) {
         println("은행 점검 시간입니다!(00:00 ~ 00:30) 키오스크를 종료합니다...")
@@ -35,6 +36,7 @@ fun main() {
 
     while(true) {
         delayThread?.interrupt()
+//        orderThread?.interrupt()
 
         delayThread = Thread {
             try {
