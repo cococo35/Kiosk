@@ -1,6 +1,8 @@
 package com.android.kiosk
 
 import java.lang.NumberFormatException
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import kotlin.properties.Delegates
 
 fun main() {
@@ -12,6 +14,14 @@ fun main() {
                                  mutableListOf("자바 칩 프라푸치노 W 6300", "카라멜 프라푸치노 W 5900", "에스프레소 프라푸치노 W 5500"),
                                  mutableListOf("체리 포레누아 케이크 W 7500", "클래식 피스타치오 케이크 W 6500", "클라우드 치즈 케이크 W 5500"))
     var delayThread: Thread? = null
+    val dateTime: LocalDateTime = LocalDateTime.now()
+    val dateTimeFormat = DateTimeFormatter.ofPattern("HHmm")
+    val dateTimeDay = dateTime.format(dateTimeFormat)
+
+    if(dateTimeDay.toInt() in 0 .. 30) {
+        println("은행 점검 시간입니다!(00:00 ~ 00:30) 키오스크를 종료합니다...")
+        return
+    }
 
     println("금액 입력")
     while(true) {
