@@ -1,5 +1,8 @@
 package com.android.kiosk
 
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 class ColdBrew: AbstractKiosk() {
     override fun init(name: String, price: Int, detail: MutableList<String>) {
         val nameAndPrice = "$name W $price"
@@ -20,16 +23,17 @@ class ColdBrew: AbstractKiosk() {
     }
 
     override fun buy(select: Int, buyMenuList: MutableList<String>, money: Int): Int {
+        val buyDateTime: LocalDateTime = LocalDateTime.now()
+        val buyDateTimeFormat = DateTimeFormatter.ofPattern("yyyy-mm-dd HH:mm:ss")
+        val buyDateTimeDay = buyDateTime.format(buyDateTimeFormat)
         if(buyMenuList[select - 1].substringAfter("W ").toInt() > money) {
             println("잔액 부족!")
-            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
             return money
         }
         for(i in buyMenuList.indices) {
             if(buyMenuList[i] == buyMenuList[select - 1] && buyMenuList[i].substringAfter("W ").toInt() <= money) {
-                println("구매 완료")
+                println("구매 완료 (현재 시간: $buyDateTimeDay)")
                 println("잔액: ${money - buyMenuList[i].substringAfter("W ").toInt()}")
-                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                 return money - buyMenuList[i].substringAfter("W ").toInt()
             }
         }
