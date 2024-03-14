@@ -11,6 +11,16 @@ fun main() {
                                  mutableListOf("카페 모카 W 5000", "카페 아메리카노 W 4000", "카푸치노 W 4500"),
                                  mutableListOf("자바 칩 프라푸치노 W 6300", "카라멜 프라푸치노 W 5900", "에스프레소 프라푸치노 W 5500"),
                                  mutableListOf("체리 포레누아 케이크 W 7500", "클래식 피스타치오 케이크 W 6500", "클라우드 치즈 케이크 W 5500"))
+//    val delayThread = Thread {
+//        try {
+//            println("잠시 후 메인 메뉴로 이동합니다...")
+//            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+//            Thread.sleep(3000)
+//        } catch(e: InterruptedException) {
+//            return@Thread
+//        }
+//    }
+    var delayThread: Thread? = null
 
     println("금액 입력")
     while(true) {
@@ -23,6 +33,19 @@ fun main() {
     }
 
     while(true) {
+        delayThread?.interrupt()
+
+        delayThread = Thread {
+            try {
+                println("잠시 후 메인 메뉴로 이동합니다...")
+                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                Thread.sleep(3000)
+            } catch (e: InterruptedException) {
+                return@Thread
+            }
+        }
+        delayThread.start()
+        delayThread.join()
 
         println("[Star Cafe Menu]")
         println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
@@ -56,12 +79,10 @@ fun main() {
                                 println("구매할 메뉴의 번호를 입력해 주세요!")
                                 myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
                             } else {
-                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                                println("올바른 숫자를 입력해주세요!")
                             }
                         } catch (e: NumberFormatException) {
-                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                            println("숫자를 입력해주세요!")
                         }
                     }
 
@@ -76,12 +97,10 @@ fun main() {
                                 println("구매할 메뉴의 번호를 입력해 주세요!")
                                 myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
                             } else {
-                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                                println("올바른 숫자를 입력해주세요!")
                             }
                         } catch (e: NumberFormatException) {
-                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                            println("숫자를 입력해주세요!")
                         }
                     }
 
@@ -96,12 +115,10 @@ fun main() {
                                 println("구매할 메뉴의 번호를 입력해 주세요!")
                                 myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
                             } else {
-                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                                println("올바른 숫자를 입력해주세요!")
                             }
                         } catch (e: NumberFormatException) {
-                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                            println("숫자를 입력해주세요!")
                         }
                     }
 
@@ -116,12 +133,10 @@ fun main() {
                                 println("구매할 메뉴의 번호를 입력해 주세요!")
                                 myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
                             } else {
-                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                                println("올바른 숫자를 입력해주세요!")
                             }
                         } catch (e: NumberFormatException) {
-                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                            println("숫자를 입력해주세요!")
                         }
                     }
 
@@ -136,12 +151,10 @@ fun main() {
                                 println("구매할 메뉴의 번호를 입력해 주세요!")
                                 myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
                             } else {
-                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                                println("올바른 숫자를 입력해주세요!")
                             }
                         } catch (e: NumberFormatException) {
-                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                            println("숫자를 입력해주세요!")
                         }
                     }
 
@@ -190,18 +203,19 @@ fun main() {
                                         }
                                 }
                             } else {
-                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                                println("올바른 숫자를 입력해주세요!")
                             }
                         } catch (e: NumberFormatException) {
-                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
-                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+                            println("숫자를 입력해주세요!")
                         }
                     }
                 }
-            } else println("올바른 숫자를 입력해주세요!")
+            } else {
+                println("올바른 숫자를 입력해주세요!")
+            }
         } catch (e:NumberFormatException) {
             println("숫자를 입력해주세요!")
+
         }
     }
 }
