@@ -31,12 +31,13 @@ fun main() {
         println("[3] 에스프레소")
         println("[4] 프라푸치노")
         println("[5] 케이크")
+        println("[6] 잔액 확인하기")
         println("[0] 키오스크 종료")
 
         try {
             var select: Int = readln().toInt()
 
-            if(select in 0..5 || select == 9) {
+            if(select in 0..6 || select == 9) {
 
                 when (select) {
                     0 -> {
@@ -47,71 +48,106 @@ fun main() {
                     1 -> {
                         work = KioskClass(ColdBrew())
                         work.menu(menuList[0], myMoney)
-                        while(select != 0) {
-                            try {
-                                select = readln().toInt()
-                                if(select == 0) continue
-                                else println ("올바른 숫자를 입력해주세요!")
-                            } catch(e:NumberFormatException) {
-                                println("숫자를 입력해주세요!")
+                        println("1번: 메뉴 주문하기, 0번: 메인 메뉴로")
+                        try {
+                            select = readln().toInt()
+                            if (select == 0) continue
+                            else if (select == 1) {
+                                println("구매할 메뉴의 번호를 입력해 주세요!")
+                                myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
+                            } else {
+                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                             }
+                        } catch (e: NumberFormatException) {
+                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                         }
                     }
 
                     2 -> {
                         work = KioskClass(Blond())
                         work.menu(menuList[1], myMoney)
-                        while(select != 0) {
-                            try {
-                                select = readln().toInt()
-                                if(select == 0) continue
-                                else println ("올바른 숫자를 입력해주세요!")
-                            } catch(e:NumberFormatException) {
-                                println("숫자를 입력해주세요!")
+                        println("1번: 메뉴 주문하기, 0번: 메인 메뉴로")
+                        try {
+                            select = readln().toInt()
+                            if (select == 0) continue
+                            else if (select == 1) {
+                                println("구매할 메뉴의 번호를 입력해 주세요!")
+                                myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
+                            } else {
+                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                             }
+                        } catch (e: NumberFormatException) {
+                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                         }
                     }
 
                     3 -> {
                         work = KioskClass(Espresso())
                         work.menu(menuList[2], myMoney)
-                        while(select != 0) {
-                            try {
-                                select = readln().toInt()
-                                if(select == 0) continue
-                                else println ("올바른 숫자를 입력해주세요!")
-                            } catch(e:NumberFormatException) {
-                                println("숫자를 입력해주세요!")
+                        println("1번: 메뉴 주문하기, 0번: 메인 메뉴로")
+                        try {
+                            select = readln().toInt()
+                            if (select == 0) continue
+                            else if (select == 1) {
+                                println("구매할 메뉴의 번호를 입력해 주세요!")
+                                myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
+                            } else {
+                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                             }
+                        } catch (e: NumberFormatException) {
+                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                         }
                     }
 
                     4 -> {
                         work = KioskClass(Frappuccino())
                         work.menu(menuList[3], myMoney)
-                        while(select != 0) {
-                            try {
-                                select = readln().toInt()
-                                if(select == 0) continue
-                                else println ("올바른 숫자를 입력해주세요!")
-                            } catch(e:NumberFormatException) {
-                                println("숫자를 입력해주세요!")
+                        println("1번: 메뉴 주문하기, 0번: 메인 메뉴로")
+                        try {
+                            select = readln().toInt()
+                            if (select == 0) continue
+                            else if (select == 1) {
+                                println("구매할 메뉴의 번호를 입력해 주세요!")
+                                myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
+                            } else {
+                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                             }
+                        } catch (e: NumberFormatException) {
+                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                         }
                     }
 
                     5 -> {
                         work = KioskClass(Cake())
                         work.menu(menuList[4], myMoney)
-                        while(select != 0) {
-                            try {
-                                select = readln().toInt()
-                                if(select == 0) continue
-                                else println ("올바른 숫자를 입력해주세요!")
-                            } catch(e:NumberFormatException) {
-                                println("숫자를 입력해주세요!")
+                        println("1번: 메뉴 주문하기, 0번: 메인 메뉴로")
+                        try {
+                            select = readln().toInt()
+                            if (select == 0) continue
+                            else if (select == 1) {
+                                println("구매할 메뉴의 번호를 입력해 주세요!")
+                                myMoney = work.buy(readln().toInt(), menuList[0], myMoney)
+                            } else {
+                                println("올바른 숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                                println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                             }
+                        } catch (e: NumberFormatException) {
+                            println("숫자를 입력해주세요! 메인 메뉴로 돌아갑니다...")
+                            println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                         }
+                    }
+
+                    6 -> {
+                        println("잔액: $myMoney")
+                        println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
                     }
 
                     9 -> {
